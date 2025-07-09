@@ -4,14 +4,22 @@ interface SearchState {
   query: string;
   setQuery: (q: string) => void;
 
-  results: string[];
-  setResults: (r: string[]) => void;
+  suggestions: string[];
+  setSuggestions: (s: string[]) => void;
+  loadingSuggestions: boolean;
+  setLoadingSuggestions: (l: boolean) => void;
+  errorSuggestions: string | null;
+  setErrorSuggestions: (e: string | null) => void;
 
-  loading: boolean;
-  setLoading: (l: boolean) => void;
+  searchResults: string[];
+  setSearchResults: (r: string[]) => void;
+  loadingResults: boolean;
+  setLoadingResults: (l: boolean) => void;
+  errorResults: string | null;
+  setErrorResults: (e: string | null) => void;
 
-  error: string | null;
-  setError: (e: string | null) => void;
+  searchQuery: string;
+  setSearchQuery: (q: string) => void;
 
   searchHistory: string[];
   addToHistory: (q: string) => void;
@@ -39,14 +47,22 @@ export const useSearchStore = create<SearchState>((set, get) => ({
   query: '',
   setQuery: (q) => set({ query: q }),
 
-  results: [],
-  setResults: (r) => set({ results: r }),
+  suggestions: [],
+  setSuggestions: (s) => set({ suggestions: s }),
+  loadingSuggestions: false,
+  setLoadingSuggestions: (l) => set({ loadingSuggestions: l }),
+  errorSuggestions: null,
+  setErrorSuggestions: (e) => set({ errorSuggestions: e }),
 
-  loading: false,
-  setLoading: (l) => set({ loading: l }),
+  searchResults: [],
+  setSearchResults: (r) => set({ searchResults: r }),
+  loadingResults: false,
+  setLoadingResults: (l) => set({ loadingResults: l }),
+  errorResults: null,
+  setErrorResults: (e) => set({ errorResults: e }),
 
-  error: null,
-  setError: (e) => set({ error: e }),
+  searchQuery: '',
+  setSearchQuery: (q) => set({ searchQuery: q }),
 
   searchHistory: loadHistory(),
   addToHistory: (q) => {

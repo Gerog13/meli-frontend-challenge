@@ -13,7 +13,7 @@
         "price": 1367999,
         "currency_id": "ARS",
         "condition": "new",
-        "thumbnail": "...",
+        "thumbnail": "https://http2.mlstatic.com/D_987654-MLA0000000000_092023-I.jpg",
         "installments": {
           "quantity": 12,
           "amount": 113999.92
@@ -30,13 +30,35 @@
         "id": "MLA987654321",
         "title": "Apple iPhone 16 Pro Max 256gb",
         "price": 2299000,
-        "condition": "new"
+        "currency_id": "ARS",
+        "condition": "new",
+        "thumbnail": "https://http2.mlstatic.com/D_987655-MLA0000000001_092023-I.jpg",
+        "installments": {
+          "quantity": 18,
+          "amount": 127722.22
+        },
+        "shipping": {
+          "free_shipping": false
+        },
+        "reviews": {
+          "rating_average": 4.7,
+          "total": 12
+        }
       },
       {
         "id": "MLA555555555",
         "title": "iPhone 8 64 GB Plata - Reacondicionado",
         "price": 412500,
+        "currency_id": "ARS",
         "condition": "used",
+        "thumbnail": "https://http2.mlstatic.com/D_987656-MLA0000000002_092023-I.jpg",
+        "installments": {
+          "quantity": 6,
+          "amount": 68750
+        },
+        "shipping": {
+          "free_shipping": true
+        },
         "reviews": {
           "rating_average": 5.0,
           "total": 2

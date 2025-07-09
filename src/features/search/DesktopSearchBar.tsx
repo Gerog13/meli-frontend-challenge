@@ -9,108 +9,138 @@ import SuggestionNoResults from '../../components/search/SuggestionNoResults';
 import SuggestionHistory from '../../components/search/SuggestionHistory';
 import SuggestionList from '../../components/search/SuggestionList';
 import { fetchSuggestions as fetchSuggestionsApi } from '../../api/search';
+import { useNavigate } from 'react-router-dom';
 
-export function DesktopSearchBar({ onSearch }: { onSearch?: (query: string) => void }) {
+export function DesktopSearchBar() {
   const {
     query,
     setQuery,
-    results,
-    setResults,
-    loading,
-    setLoading,
-    setError,
-    error,
+    suggestions,
+    setSuggestions,
+    loadingSuggestions,
+    setLoadingSuggestions,
+    errorSuggestions,
+    setErrorSuggestions,
+    setSearchResults,
+    setLoadingResults,
+    setErrorResults,
+    setSearchQuery,
     searchHistory,
+
     addToHistory,
   } = useSearchStore();
 
   const [showSuggestions, setShowSuggestions] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const debouncedQuery = useDebounce(query, 300);
+  const navigate = useNavigate();
 
-  const fetchSuggestions = async (query: string) => {
-    setLoading(true);
+  useEffect(() => {
+    if (inputRef.current && query) {
+      inputRef.current.value = query;
+    }
+  }, [query]);
+
+  const fetchSuggestions = async (q: string) => {
+    setLoadingSuggestions(true);
     try {
-      const data = await fetchSuggestionsApi(query);
-      setResults(data.results.map((item: any) => item.title));
-      setShowSuggestions(true);
-      setError(null);
+      const data = await fetchSuggestionsApi(q);
+      setSuggestions(data.results.map((item: any) => item.title));
+      setErrorSuggestions(null);
     } catch (error) {
-      setError(
+      setErrorSuggestions(
         `Error al buscar las sugerencias: ${error instanceof Error ? error.message : 'Error desconocido'}`,
       );
     } finally {
-      setLoading(false);
+      setLoadingSuggestions(false);
     }
   };
 
   useEffect(() => {
     if (!debouncedQuery) {
-      setResults([]);
+      setSuggestions([]);
       return;
     }
     fetchSuggestions(debouncedQuery);
   }, [debouncedQuery]);
 
+  const fetchResults = async (q: string) => {
+    setLoadingResults(true);
+    setErrorResults(null);
+    try {
+      const data = await fetchSuggestionsApi(q);
+      setSearchResults(data.results);
+      setSearchQuery(q);
+    } catch (error) {
+      setErrorResults(
+        `Error al buscar productos: ${error instanceof Error ? error.message : 'Error desconocido'}`,
+      );
+    } finally {
+      setLoadingResults(false);
+    }
+  };
+
   const handleSubmit = useCallback(
     (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      if (query.trim()) {
-        onSearch?.(query.trim());
+      const trimmedQuery = query.trim();
+      if (trimmedQuery) {
+        setQuery(trimmedQuery);
+        addToHistory(trimmedQuery);
+        fetchResults(trimmedQuery);
+        navigate(`/${encodeURIComponent(trimmedQuery)}`);
         setShowSuggestions(false);
-        addToHistory(query.trim());
       }
     },
-    [onSearch, query, addToHistory],
+    [query, setQuery, addToHistory, fetchResults, navigate],
   );
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent<HTMLInputElement>) => {
-      if (e.key === 'Enter' && query.trim()) {
-        onSearch?.(query.trim());
+      const trimmedQuery = query.trim();
+      if (e.key === 'Enter' && trimmedQuery) {
+        setQuery(trimmedQuery);
+        fetchResults(trimmedQuery);
+        navigate(`/${encodeURIComponent(trimmedQuery)}`);
         setShowSuggestions(false);
       }
     },
-    [onSearch, query],
+    [query, setQuery, fetchResults, navigate],
   );
+
+  const handleSuggestionSelect = (s: string) => {
+    setQuery(s);
+    setShowSuggestions(false);
+    addToHistory(s);
+    fetchResults(s);
+    navigate(`/${encodeURIComponent(s)}`);
+  };
 
   const getDropdownContent = () => {
     const showHistory = !query && searchHistory.length > 0;
-    if (loading) return <SuggestionLoading />;
-    if (error)
+    if (loadingSuggestions) return <SuggestionLoading />;
+    if (errorSuggestions)
       return (
         <SuggestionError
           onRetry={() => {
-            setError(null);
-            setLoading(true);
+            setErrorSuggestions(null);
+            setLoadingSuggestions(true);
             fetchSuggestions(query);
           }}
         />
       );
-    if (!showHistory && results.length === 0 && query) {
+    if (!showHistory && suggestions.length === 0 && query) {
       return <SuggestionNoResults />;
     }
     return (
       <ul className="p-0 m-0 list-none">
         {showHistory ? (
-          <SuggestionHistory
-            history={searchHistory}
-            onSelect={(s) => {
-              setQuery(s);
-              setShowSuggestions(false);
-              onSearch?.(s);
-            }}
-          />
+          <SuggestionHistory history={searchHistory} onSelect={handleSuggestionSelect} />
         ) : (
           <SuggestionList
-            suggestions={results}
+            suggestions={suggestions}
             query={query}
-            onSelect={(s) => {
-              setQuery(s);
-              setShowSuggestions(false);
-              addToHistory(s);
-              onSearch?.(s);
-            }}
+            onSelect={handleSuggestionSelect}
           />
         )}
       </ul>
@@ -123,7 +153,7 @@ export function DesktopSearchBar({ onSearch }: { onSearch?: (query: string) => v
         role="listbox"
         className="absolute left-0 top-[40px] w-full min-w-[320px] max-w-[720px] bg-white shadow-[0_1px_2px_0_rgba(0,0,0,0.2)] rounded-b-[2px] z-20 p-0 m-0"
         aria-live="polite"
-        aria-busy={loading}
+        aria-busy={loadingSuggestions}
       >
         <div
           aria-hidden="true"
@@ -140,17 +170,16 @@ export function DesktopSearchBar({ onSearch }: { onSearch?: (query: string) => v
       </div>
     );
   }, [
-    results,
+    suggestions,
     query,
     setQuery,
-    onSearch,
+    loadingSuggestions,
+    errorSuggestions,
+    setErrorSuggestions,
+    setLoadingSuggestions,
+    setSuggestions,
     searchHistory,
     addToHistory,
-    loading,
-    error,
-    setError,
-    setLoading,
-    setResults,
   ]);
 
   return (
@@ -174,9 +203,9 @@ export function DesktopSearchBar({ onSearch }: { onSearch?: (query: string) => v
           setQuery(e.target.value);
           setShowSuggestions(true);
           if (e.target.value === '') {
-            setLoading(false);
+            setLoadingSuggestions(false);
           } else {
-            setLoading(true);
+            setLoadingSuggestions(true);
           }
         }}
         onKeyDown={handleKeyDown}

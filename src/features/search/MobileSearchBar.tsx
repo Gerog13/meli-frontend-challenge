@@ -11,17 +11,22 @@ import SuggestionNoResults from '../../components/search/SuggestionNoResults';
 import SuggestionHistory from '../../components/search/SuggestionHistory';
 import SuggestionList from '../../components/search/SuggestionList';
 import { fetchSuggestions as fetchSuggestionsApi } from '../../api/search';
+import { useNavigate } from 'react-router-dom';
 
 export function MobileSearchBar({ onSearch }: { onSearch?: (query: string) => void }) {
   const {
     query,
     setQuery,
-    results,
-    setResults,
-    loading,
-    setLoading,
-    setError,
-    error,
+    suggestions,
+    setSuggestions,
+    loadingSuggestions,
+    setLoadingSuggestions,
+    errorSuggestions,
+    setErrorSuggestions,
+    setSearchResults,
+    setLoadingResults,
+    setErrorResults,
+    setSearchQuery,
     searchHistory,
     addToHistory,
   } = useSearchStore();
@@ -30,31 +35,36 @@ export function MobileSearchBar({ onSearch }: { onSearch?: (query: string) => vo
   const [expanded, setExpanded] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setHasSearched(false);
   }, [debouncedQuery]);
 
-  const fetchSuggestions = async (query: string) => {
-    setLoading(true);
+  useEffect(() => {
+    if (inputRef.current && query) {
+      inputRef.current.value = query;
+    }
+  }, [query]);
+
+  const fetchSuggestions = async (q: string) => {
+    setLoadingSuggestions(true);
     try {
-      const data = await fetchSuggestionsApi(query);
-      setResults(data.results.map((item: any) => item.title));
-      setShowSuggestions(true);
-      setError(null);
+      const data = await fetchSuggestionsApi(q);
+      setSuggestions(data.results.map((item: any) => item.title));
+      setErrorSuggestions(null);
     } catch (error) {
-      setError(
+      setErrorSuggestions(
         `Error al buscar las sugerencias: ${error instanceof Error ? error.message : 'Error desconocido'}`,
       );
     } finally {
-      setLoading(false);
-      setHasSearched(true);
+      setLoadingSuggestions(false);
     }
   };
 
   useEffect(() => {
     if (!debouncedQuery) {
-      setResults([]);
+      setSuggestions([]);
       setShowSuggestions(false);
       setHasSearched(false);
       return;
@@ -62,13 +72,31 @@ export function MobileSearchBar({ onSearch }: { onSearch?: (query: string) => vo
     fetchSuggestions(debouncedQuery);
   }, [debouncedQuery]);
 
+  const fetchResults = async (q: string) => {
+    setLoadingResults(true);
+    setErrorResults(null);
+    try {
+      const data = await fetchSuggestionsApi(q); // reutilizamos el mock
+      setSearchResults(data.results);
+      setSearchQuery(q);
+    } catch (error) {
+      setErrorResults(
+        `Error al buscar productos: ${error instanceof Error ? error.message : 'Error desconocido'}`,
+      );
+    } finally {
+      setLoadingResults(false);
+    }
+  };
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (query.trim()) {
-      onSearch?.(query.trim());
+      setQuery(query.trim());
+      addToHistory(query.trim());
+      fetchResults(query.trim());
       setShowSuggestions(false);
       setExpanded(false);
-      addToHistory(query.trim());
+      navigate(`/${encodeURIComponent(query.trim())}`);
     }
   };
 
@@ -77,6 +105,15 @@ export function MobileSearchBar({ onSearch }: { onSearch?: (query: string) => vo
     setShowSuggestions(false);
     setQuery('');
     inputRef.current?.blur();
+  };
+
+  const handleSuggestionSelect = (s: string) => {
+    setQuery(s);
+    setShowSuggestions(false);
+    setExpanded(false);
+    addToHistory(s);
+    fetchResults(s);
+    navigate(`/${encodeURIComponent(s)}`);
   };
 
   const renderCollapsedBar = useCallback(
@@ -153,9 +190,9 @@ export function MobileSearchBar({ onSearch }: { onSearch?: (query: string) => vo
             onChange={(e) => {
               setQuery(e.target.value);
               if (e.target.value === '') {
-                setLoading(false);
+                setLoadingSuggestions(false);
               } else {
-                setLoading(true);
+                setLoadingSuggestions(true);
               }
             }}
             placeholder="Estoy buscando..."
@@ -188,7 +225,7 @@ export function MobileSearchBar({ onSearch }: { onSearch?: (query: string) => vo
           className="w-full bg-white z-[1001] animate-fade-in border-t border-[#e6e6e6] min-h-0 max-h-[calc(100vh-48px)] overflow-y-auto"
           style={{ transition: 'opacity 0.2s cubic-bezier(.4,0,.2,1)' }}
           aria-live="polite"
-          aria-busy={loading}
+          aria-busy={loadingSuggestions}
         >
           {getDropdownContent()}
         </div>
@@ -210,61 +247,41 @@ export function MobileSearchBar({ onSearch }: { onSearch?: (query: string) => vo
     query,
     setQuery,
     showSuggestions,
-    results,
+    suggestions,
     onSearch,
     searchHistory,
     addToHistory,
-    loading,
-    error,
+    loadingSuggestions,
+    errorSuggestions,
     hasSearched,
+    navigate,
   ]);
 
   const getDropdownContent = () => {
     const showHistory = !query && searchHistory.length > 0;
-    if (loading) return <SuggestionLoading />;
-    if (error)
+    if (loadingSuggestions) return <SuggestionLoading />;
+    if (errorSuggestions)
       return (
         <SuggestionError
           onRetry={() => {
-            setError(null);
-            setLoading(true);
-            fetch(`/search?q=${encodeURIComponent(query)}`)
-              .then((res) => res.json())
-              .then((data) => {
-                setResults(data.results.map((item: any) => item.title));
-                setError(null);
-              })
-              .catch(() => setError('Error al buscar'))
-              .finally(() => setLoading(false));
+            setErrorSuggestions(null);
+            setLoadingSuggestions(true);
+            fetchSuggestions(query);
           }}
         />
       );
-    if (!showHistory && results.length === 0 && query && !loading && hasSearched) {
+    if (!showHistory && suggestions.length === 0 && query && !loadingSuggestions && hasSearched) {
       return <SuggestionNoResults />;
     }
     return (
       <ul className="p-0 my-2 list-none">
         {showHistory ? (
-          <SuggestionHistory
-            history={searchHistory}
-            onSelect={(s) => {
-              setQuery(s);
-              setShowSuggestions(false);
-              setExpanded(false);
-              onSearch?.(s);
-            }}
-          />
+          <SuggestionHistory history={searchHistory} onSelect={handleSuggestionSelect} />
         ) : (
           <SuggestionList
-            suggestions={results}
+            suggestions={suggestions}
             query={query}
-            onSelect={(s) => {
-              setQuery(s);
-              setShowSuggestions(false);
-              setExpanded(false);
-              addToHistory(s);
-              onSearch?.(s);
-            }}
+            onSelect={handleSuggestionSelect}
           />
         )}
       </ul>
