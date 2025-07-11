@@ -2,7 +2,7 @@ import { MdArrowForwardIos } from 'react-icons/md';
 
 export default function Paginator({ page = 1 }: { page?: number }) {
   return (
-    <div className="flex items-center justify-center w-full bg-meli-gray py-6 gap-[14px]">
+    <div className="flex items-center justify-center w-full bg-meli-gray py-6 meli-md:py-8 gap-[14px]">
       <span className="inline-flex items-center justify-center w-8 h-8 border-2 border-meli-blue rounded-lg text-base font-medium text-black bg-white">
         {page}
       </span>

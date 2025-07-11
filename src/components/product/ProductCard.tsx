@@ -1,5 +1,7 @@
-import React from 'react';
-
+import { useState } from 'react';
+import { AiOutlineHeart } from 'react-icons/ai';
+import { AiFillHeart } from 'react-icons/ai';
+import ProductRating from './ProductRating';
 interface ProductCardProps {
   id?: string;
   title: string;
@@ -18,6 +20,9 @@ interface ProductCardProps {
     rating_average: number;
     total: number;
   };
+  original_price?: number;
+  discount?: number;
+  badge?: string;
 }
 
 export default function ProductCard({
@@ -30,17 +35,32 @@ export default function ProductCard({
   installments,
   shipping,
   reviews,
+  original_price,
+  discount,
+  badge,
 }: ProductCardProps) {
+  const [liked, setLiked] = useState(false);
   return (
-    <div className="flex gap-4 bg-white rounded-md min-h-[200px] p-4 items-start shadow-[rgba(0,0,0,0.12)_0px_1px_2px_0px]">
-      <figure className="relative w-[160px] h-[192px] flex-shrink-0 flex items-center justify-center bg-gray-50 rounded-md overflow-hidden">
-        {/* Badge Naranja 'Nuevo' */}
-        {condition === 'new' && (
+    <div className="flex gap-4 bg-white rounded-md min-h-[200px] p-4 items-start shadow-[rgba(0,0,0,0.12)_0px_1px_2px_0px] meli-md:max-w-[744px] meli-md:rounded-none  meli-md:w-full meli-md:gap-6 meli-md:items-center relative">
+      <button
+        type="button"
+        aria-label={liked ? 'Quitar de favoritos' : 'Agregar a favoritos'}
+        className="hidden meli-md:flex absolute top-6 right-6 z-20 cursor-pointer"
+        onClick={() => setLiked((prev) => !prev)}
+      >
+        {liked ? (
+          <AiFillHeart size={24} className="text-meli-blue" />
+        ) : (
+          <AiOutlineHeart size={24} className="text-meli-blue" />
+        )}
+      </button>
+      <figure className="relative w-[160px] h-[192px] flex-shrink-0 flex items-center justify-center bg-gray-50 rounded-md overflow-hidden meli-md:w-[220px] meli-md:h-[220px]">
+        {(condition === 'new' || badge) && (
           <span
-            className="absolute top-2 left-2 bg-[#ff6f00] text-white text-xs font-bold rounded px-2 py-1 shadow z-10"
+            className={`absolute top-2 left-2 text-white text-xs font-bold rounded px-2 py-1 shadow z-10 meli-md:hidden ${badge ? 'bg-[#ff6f00]' : 'bg-[#ff6f00]'}`}
             style={{ letterSpacing: 0.5 }}
           >
-            NUEVO
+            {badge ? badge : 'NUEVO'}
           </span>
         )}
         {thumbnail ? (
@@ -48,43 +68,30 @@ export default function ProductCard({
             src={thumbnail}
             alt={title}
             className="w-full h-full object-contain"
-            style={{ maxWidth: 160, maxHeight: 192 }}
+            style={{ maxWidth: 220, maxHeight: 220 }}
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center bg-gray-100 text-gray-400 text-2xl">
             ?
           </div>
         )}
-        {/* Botón de like/favorito */}
         <button
           type="button"
-          aria-label="Agregar a favoritos"
-          className="absolute top-2 right-2 cursor-pointer w-8 h-8 flex items-center justify-center rounded-full bg-white/90 border-0 shadow focus:outline-none"
+          aria-label={liked ? 'Quitar de favoritos' : 'Agregar a favoritos'}
+          className="absolute top-2 right-2 cursor-pointer w-8 h-8 flex meli-md:hidden items-center justify-center rounded-full bg-white/90 border-0 shadow focus:outline-none"
           style={{ boxShadow: '0 1px 4px 0 rgba(0,0,0,0.10)' }}
+          onClick={() => setLiked((prev) => !prev)}
         >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="stroke-meli-blue"
-          >
-            <path
-              d="M10 17.5s-6.25-4.375-6.25-8.125A3.75 3.75 0 0 1 10 6.25a3.75 3.75 0 0 1 6.25 3.125C16.25 13.125 10 17.5 10 17.5z"
-              stroke="#3483fa"
-              strokeWidth="1.5"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          {liked ? (
+            <AiFillHeart size={18} className="text-meli-blue" />
+          ) : (
+            <AiOutlineHeart size={18} className="text-meli-blue" />
+          )}
         </button>
       </figure>
 
-      <div className="flex flex-col flex-1 min-w-0 justify-center">
-        {/* Título */}
-        <h3 className="font-normal text-sm text-[rgba(0,0,0,.9)] mb-1 leading-5">
+      <div className="flex flex-col flex-1 min-w-0 justify-center meli-md:justify-start meli-md:self-start meli-md:gap-3">
+        <h3 className="font-normal text-sm meli-md:text-lg meli-md:pt-3 text-[rgba(0,0,0,.9)] mb-1 leading-5 meli-md:mb-0 meli-md:font-light">
           <a
             href={`https://www.mercadolibre.com.ar/item/${id}`}
             target="_blank"
@@ -93,55 +100,53 @@ export default function ProductCard({
             {title}
           </a>
         </h3>
-        {/* Rating */}
         {reviews &&
           typeof reviews.rating_average === 'number' &&
           typeof reviews.total === 'number' && (
-            <span className="text-xs flex items-center gap-1">
-              <span className="text-[rgba(0,0,0,.5)] font-normal text-xs ml-1">
-                {reviews.rating_average}
-              </span>
-              <span className="flex items-center">
-                {/* Estrellas azules */}
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <svg
-                    key={i}
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill={i < Math.round(reviews.rating_average) ? '#3483fa' : '#e0e0e0'}
-                    className="inline-block"
-                  >
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                  </svg>
-                ))}
-              </span>
-              <span className="text-[rgba(0,0,0,.5)] font-normal text-xs ml-1">
-                ({reviews.total})
-              </span>
-            </span>
+            <div className="meli-md:hidden mt-1 mb-1">
+              <ProductRating rating_average={reviews.rating_average} total={reviews.total} />
+            </div>
           )}
-        {/* Precio */}
-        <span className="text-xl font-normal text-[rgba(0,0,0,.9)] mt-2">
-          {currency_id === 'ARS' ? '$' : currency_id}{' '}
-          {typeof price === 'number' ? price.toLocaleString('es-AR') : ''}
-        </span>
-        {/* Cuotas */}
-        {installments && typeof installments.amount === 'number' && installments.quantity ? (
-          <span className="text-xs text-[rgba(0,0,0,.9)] mb-1">
-            {installments.quantity} cuotas de ${installments.amount.toLocaleString('es-AR')}
-          </span>
-        ) : null}
-        {/* Envío gratis */}
-        {shipping && shipping.free_shipping && (
-          <span className="text-xs font-semibold text-meli-green mt-2 mb-1">Envío gratis</span>
-        )}
-        {/* Condición (usado, reacondicionado, etc) si no es nuevo */}
-        {condition !== 'new' && (
-          <span className="text-xs text-gray-500 mb-1 capitalize">
-            {condition === 'used' ? 'Usado' : condition}
-          </span>
-        )}
+        <div className="flex flex-col meli-md:flex-row meli-md:items-start">
+          <div className="flex flex-col meli-md:gap-1 meli-md:min-w-[260px]">
+            {original_price && original_price > price && (
+              <span className="text-sm text-gray-400 line-through meli-md:mb-0.5">
+                {currency_id === 'ARS' ? '$' : currency_id} {original_price.toLocaleString('es-AR')}
+              </span>
+            )}
+            <span className="text-xl meli-md:text-2xl font-normal text-[rgba(0,0,0,.9)] mt-2 meli-md:mt-0 meli-md:mb-0.5">
+              {currency_id === 'ARS' ? '$' : currency_id}{' '}
+              {typeof price === 'number' ? price.toLocaleString('es-AR') : ''}
+            </span>
+            {discount && (
+              <span className="text-green-600 text-sm font-semibold meli-md:mb-0.5">
+                {discount}% OFF
+              </span>
+            )}
+            {installments && typeof installments.amount === 'number' && installments.quantity ? (
+              <span className="text-xs text-[rgba(0,0,0,.9)] meli-md:text-sm meli-md:font-light meli-md:mb-0.5">
+                {installments.quantity} cuotas de ${installments.amount.toLocaleString('es-AR')}
+              </span>
+            ) : null}
+            {shipping && shipping.free_shipping && (
+              <span className="text-xs font-semibold text-meli-green mt-2 meli-md:text-sm mb-1 meli-md:mt-0">
+                Envío gratis
+              </span>
+            )}
+            {condition !== 'new' && (
+              <span className="text-xs text-[rgba(0,0,0,.5)] mb-1 capitalize meli-md:text-sm meli-md:mb-0.5">
+                {condition === 'used' ? 'Usado' : condition}
+              </span>
+            )}
+          </div>
+          {reviews &&
+            typeof reviews.rating_average === 'number' &&
+            typeof reviews.total === 'number' && (
+              <div className="hidden meli-md:flex flex-col items-start flex-1 gap-1">
+                <ProductRating rating_average={reviews.rating_average} total={reviews.total} />
+              </div>
+            )}
+        </div>
       </div>
     </div>
   );

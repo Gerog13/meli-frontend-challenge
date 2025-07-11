@@ -5,9 +5,9 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-meli-gray">
+    <div className="min-h-screen bg-meli-gray flex flex-col">
       <Header />
-      <main className="max-w-7xl mx-auto px-0 pb-6">
+      <main className="max-w-7xl flex-1 px-0 pb-6">
         <Routes>
           <Route path="/" element={<div />} />
           <Route path=":query" element={<ProductList />} />

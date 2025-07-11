@@ -219,7 +219,6 @@ export function MobileSearchBar({ onSearch }: { onSearch?: (query: string) => vo
             </button>
           )}
         </form>
-        {/* Sugerencias o historial */}
         <div
           role="listbox"
           className="w-full bg-white z-[1001] animate-fade-in border-t border-[#e6e6e6] min-h-0 max-h-[calc(100vh-48px)] overflow-y-auto"
