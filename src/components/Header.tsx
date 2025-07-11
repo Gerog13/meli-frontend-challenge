@@ -2,7 +2,7 @@ import SearchBar from '../features/search/SearchBar';
 import CartIcon from './icons/CartIcon';
 import HamburgerIcon from './icons/HamburgerIcon';
 
-export default function Header({ onSearch }: { onSearch?: (query: string) => void }) {
+export default function Header() {
   return (
     <header
       className="bg-meli-yellow-light meli-md:bg-meli-yellow w-full border-b border-meli-gray"
@@ -32,7 +32,7 @@ export default function Header({ onSearch }: { onSearch?: (query: string) => voi
         </div>
 
         <div className="absolute right-[94px] left-16 meli-md:inset-0 meli-md:relative meli-md:col-start-2 meli-md:row-start-1 flex items-center h-[40px]">
-          <SearchBar onSearch={onSearch} />
+          <SearchBar />
         </div>
 
         <div className="col-start-3 row-start-1 flex items-center justify-end h-[40px]">

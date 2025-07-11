@@ -8,6 +8,7 @@
   --color-meli-gray: #ededed;
   --color-meli-white: #fff;
   --color-meli-black: #000;
+  --color-meli-green: #00a650;
   --color-meli-purple: #a50082;
 
   --font-proxima-nova: 'Proxima Nova', -apple-system, Roboto, Arial, sans-serif;
@@ -57,7 +58,8 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
+
   font-family:
     'Proxima Nova',
     -apple-system,
