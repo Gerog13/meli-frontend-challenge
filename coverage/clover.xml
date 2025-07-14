@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1752501057482" clover="3.2.0">
+  <project timestamp="1752501057482" name="All files">
+    <metrics statements="479" coveredstatements="357" conditionals="283" coveredconditionals="156" methods="158" coveredmethods="93" elements="920" coveredelements="606" complexity="0" loc="479" ncloc="479" packages="11" files="32" classes="32"/>
+    <package name="api">
+      <metrics statements="10" coveredstatements="3" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="1"/>
+      <file name="search.ts" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/api/search.ts">
+        <metrics statements="10" coveredstatements="3" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="1"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="8" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="13" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="components">
+      <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="Header.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/Header.tsx">
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="9" type="stmt"/>
+        <line num="36" count="9" type="stmt"/>
+        <line num="44" count="9" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="79" count="9" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.icons">
+      <metrics statements="9" coveredstatements="8" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <file name="CartIcon.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/icons/CartIcon.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="9" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+      </file>
+      <file name="HamburgerIcon.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/icons/HamburgerIcon.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="9" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+      </file>
+      <file name="SearchSuggestionIcon.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/icons/SearchSuggestionIcon.tsx">
+        <metrics statements="3" coveredstatements="2" conditionals="6" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.product">
+      <metrics statements="33" coveredstatements="28" conditionals="51" coveredconditionals="43" methods="16" coveredmethods="12"/>
+      <file name="ProductCard.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/product/ProductCard.tsx">
+        <metrics statements="18" coveredstatements="16" conditionals="44" coveredconditionals="39" methods="7" coveredmethods="6"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="41" count="18" type="stmt"/>
+        <line num="58" count="9" type="cond" truecount="4" falsecount="0"/>
+        <line num="59" count="8" type="stmt"/>
+        <line num="87" count="9" type="stmt"/>
+        <line num="120" count="2" type="stmt"/>
+        <line num="134" count="9" type="stmt"/>
+        <line num="135" count="9" type="stmt"/>
+        <line num="137" count="9" type="stmt"/>
+        <line num="139" count="0" type="stmt"/>
+        <line num="140" count="0" type="stmt"/>
+        <line num="143" count="9" type="stmt"/>
+        <line num="144" count="1" type="stmt"/>
+        <line num="145" count="1" type="stmt"/>
+        <line num="148" count="9" type="stmt"/>
+      </file>
+      <file name="ProductCardSkeleton.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/product/ProductCardSkeleton.tsx">
+        <metrics statements="5" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+      </file>
+      <file name="ProductDetailSkeleton.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/product/ProductDetailSkeleton.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="9" type="stmt"/>
+        <line num="20" count="36" type="stmt"/>
+        <line num="40" count="45" type="stmt"/>
+        <line num="61" count="27" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+      </file>
+      <file name="ProductRating.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/product/ProductRating.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="7" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="9" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="23" type="stmt"/>
+        <line num="17" count="115" type="stmt"/>
+        <line num="49" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.productListUI">
+      <metrics statements="47" coveredstatements="37" conditionals="25" coveredconditionals="7" methods="16" coveredmethods="9"/>
+      <file name="BestInstallmentToggle.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/productListUI/BestInstallmentToggle.tsx">
+        <metrics statements="5" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="3" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+      </file>
+      <file name="FilterButton.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/productListUI/FilterButton.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+      </file>
+      <file name="Paginator.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/productListUI/Paginator.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="4" count="4" type="stmt"/>
+      </file>
+      <file name="ProductListHeader.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/productListUI/ProductListHeader.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+      </file>
+      <file name="RelatedSearches.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/productListUI/RelatedSearches.tsx">
+        <metrics statements="9" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="21" count="32" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+      </file>
+      <file name="ShippingInfoAlert.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/productListUI/ShippingInfoAlert.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+      </file>
+      <file name="SortButton.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/productListUI/SortButton.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+      </file>
+      <file name="SortDropdown.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/productListUI/SortDropdown.tsx">
+        <metrics statements="16" coveredstatements="9" conditionals="16" coveredconditionals="2" methods="5" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.search">
+      <metrics statements="23" coveredstatements="12" conditionals="7" coveredconditionals="0" methods="11" coveredmethods="1"/>
+      <file name="SuggestionError.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/search/SuggestionError.tsx">
+        <metrics statements="2" coveredstatements="1" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+      </file>
+      <file name="SuggestionHistory.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/search/SuggestionHistory.tsx">
+        <metrics statements="5" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+      </file>
+      <file name="SuggestionList.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/search/SuggestionList.tsx">
+        <metrics statements="7" coveredstatements="4" conditionals="4" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="26" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="27" count="0" type="stmt"/>
+      </file>
+      <file name="SuggestionLoading.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/search/SuggestionLoading.tsx">
+        <metrics statements="3" coveredstatements="2" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="7" count="4" type="cond" truecount="0" falsecount="1"/>
+        <line num="8" count="0" type="stmt"/>
+      </file>
+      <file name="SuggestionNoResults.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/search/SuggestionNoResults.tsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+      </file>
+      <file name="SuggestionSkeleton.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/components/search/SuggestionSkeleton.tsx">
+        <metrics statements="4" coveredstatements="2" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="3" count="4" type="cond" truecount="0" falsecount="1"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="features.product">
+      <metrics statements="109" coveredstatements="75" conditionals="101" coveredconditionals="60" methods="37" coveredmethods="17"/>
+      <file name="ProductDetail.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/features/product/ProductDetail.tsx">
+        <metrics statements="75" coveredstatements="51" conditionals="85" coveredconditionals="48" methods="29" coveredmethods="13"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="55" count="9" type="stmt"/>
+        <line num="59" count="9" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="84" count="9" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
+        <line num="114" count="1" type="stmt"/>
+        <line num="115" count="0" type="stmt"/>
+        <line num="117" count="0" type="stmt"/>
+        <line num="124" count="0" type="stmt"/>
+        <line num="125" count="0" type="stmt"/>
+        <line num="135" count="0" type="stmt"/>
+        <line num="136" count="0" type="stmt"/>
+        <line num="146" count="0" type="stmt"/>
+        <line num="151" count="0" type="stmt"/>
+        <line num="152" count="0" type="stmt"/>
+        <line num="167" count="9" type="stmt"/>
+        <line num="187" count="45" type="stmt"/>
+        <line num="249" count="1" type="stmt"/>
+        <line num="250" count="9" type="stmt"/>
+        <line num="256" count="18" type="stmt"/>
+        <line num="257" count="18" type="cond" truecount="1" falsecount="1"/>
+        <line num="258" count="18" type="cond" truecount="1" falsecount="1"/>
+        <line num="259" count="18" type="cond" truecount="1" falsecount="1"/>
+        <line num="260" count="18" type="stmt"/>
+        <line num="276" count="1" type="stmt"/>
+        <line num="277" count="9" type="stmt"/>
+        <line num="285" count="1" type="stmt"/>
+        <line num="286" count="18" type="stmt"/>
+        <line num="287" count="18" type="stmt"/>
+        <line num="288" count="18" type="stmt"/>
+        <line num="289" count="18" type="stmt"/>
+        <line num="290" count="18" type="stmt"/>
+        <line num="291" count="18" type="stmt"/>
+        <line num="292" count="18" type="stmt"/>
+        <line num="293" count="18" type="stmt"/>
+        <line num="295" count="18" type="stmt"/>
+        <line num="296" count="9" type="stmt"/>
+        <line num="297" count="9" type="stmt"/>
+        <line num="298" count="9" type="stmt"/>
+        <line num="299" count="9" type="cond" truecount="1" falsecount="1"/>
+        <line num="301" count="9" type="stmt"/>
+        <line num="302" count="9" type="cond" truecount="1" falsecount="1"/>
+        <line num="304" count="0" type="stmt"/>
+        <line num="306" count="9" type="stmt"/>
+        <line num="307" count="9" type="stmt"/>
+        <line num="311" count="18" type="cond" truecount="6" falsecount="0"/>
+        <line num="313" count="18" type="stmt"/>
+        <line num="315" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="316" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="321" count="18" type="stmt"/>
+        <line num="323" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="324" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="329" count="18" type="stmt"/>
+        <line num="330" count="18" type="cond" truecount="1" falsecount="1"/>
+        <line num="331" count="0" type="stmt"/>
+        <line num="332" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="333" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="334" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="336" count="0" type="stmt"/>
+        <line num="337" count="0" type="stmt"/>
+        <line num="340" count="18" type="cond" truecount="4" falsecount="0"/>
+        <line num="341" count="9" type="stmt"/>
+        <line num="343" count="9" type="cond" truecount="3" falsecount="1"/>
+        <line num="344" count="0" type="stmt"/>
+        <line num="351" count="9" type="stmt"/>
+        <line num="411" count="1" type="stmt"/>
+      </file>
+      <file name="ProductList.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/features/product/ProductList.tsx">
+        <metrics statements="34" coveredstatements="24" conditionals="16" coveredconditionals="12" methods="8" coveredmethods="4"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="29" count="4" type="stmt"/>
+        <line num="30" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="49" count="4" type="stmt"/>
+        <line num="50" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="51" count="3" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="57" count="4" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="79" count="2" type="cond" truecount="3" falsecount="1"/>
+      </file>
+    </package>
+    <package name="features.search">
+      <metrics statements="190" coveredstatements="137" conditionals="80" coveredconditionals="38" methods="43" coveredmethods="24"/>
+      <file name="DesktopSearchBar.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/features/search/DesktopSearchBar.tsx">
+        <metrics statements="86" coveredstatements="68" conditionals="37" coveredconditionals="25" methods="18" coveredmethods="12"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="31" count="39" type="stmt"/>
+        <line num="33" count="39" type="stmt"/>
+        <line num="34" count="39" type="stmt"/>
+        <line num="35" count="39" type="stmt"/>
+        <line num="36" count="39" type="stmt"/>
+        <line num="38" count="39" type="stmt"/>
+        <line num="39" count="23" type="cond" truecount="4" falsecount="0"/>
+        <line num="40" count="3" type="stmt"/>
+        <line num="44" count="39" type="stmt"/>
+        <line num="45" count="3" type="stmt"/>
+        <line num="46" count="3" type="stmt"/>
+        <line num="47" count="3" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="51" count="3" type="stmt"/>
+        <line num="55" count="3" type="stmt"/>
+        <line num="59" count="39" type="stmt"/>
+        <line num="60" count="23" type="cond" truecount="2" falsecount="0"/>
+        <line num="61" count="20" type="stmt"/>
+        <line num="62" count="20" type="stmt"/>
+        <line num="64" count="3" type="stmt"/>
+        <line num="67" count="39" type="stmt"/>
+        <line num="68" count="2" type="stmt"/>
+        <line num="69" count="2" type="stmt"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="71" count="2" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="75" count="2" type="stmt"/>
+        <line num="79" count="2" type="stmt"/>
+        <line num="83" count="39" type="stmt"/>
+        <line num="85" count="2" type="stmt"/>
+        <line num="86" count="2" type="stmt"/>
+        <line num="87" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="88" count="1" type="stmt"/>
+        <line num="89" count="1" type="stmt"/>
+        <line num="90" count="1" type="stmt"/>
+        <line num="91" count="1" type="stmt"/>
+        <line num="92" count="1" type="stmt"/>
+        <line num="98" count="39" type="stmt"/>
+        <line num="100" count="1" type="stmt"/>
+        <line num="101" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="102" count="1" type="stmt"/>
+        <line num="103" count="1" type="stmt"/>
+        <line num="104" count="1" type="stmt"/>
+        <line num="105" count="1" type="stmt"/>
+        <line num="111" count="39" type="stmt"/>
+        <line num="112" count="0" type="stmt"/>
+        <line num="113" count="0" type="stmt"/>
+        <line num="114" count="0" type="stmt"/>
+        <line num="115" count="0" type="stmt"/>
+        <line num="116" count="0" type="stmt"/>
+        <line num="119" count="39" type="stmt"/>
+        <line num="120" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="121" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="122" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="123" count="0" type="stmt"/>
+        <line num="126" count="0" type="stmt"/>
+        <line num="127" count="0" type="stmt"/>
+        <line num="128" count="0" type="stmt"/>
+        <line num="132" count="1" type="cond" truecount="4" falsecount="1"/>
+        <line num="133" count="0" type="stmt"/>
+        <line num="135" count="1" type="stmt"/>
+        <line num="150" count="39" type="stmt"/>
+        <line num="151" count="1" type="stmt"/>
+        <line num="185" count="39" type="stmt"/>
+        <line num="203" count="1" type="stmt"/>
+        <line num="204" count="1" type="stmt"/>
+        <line num="205" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="206" count="0" type="stmt"/>
+        <line num="208" count="1" type="stmt"/>
+        <line num="218" count="0" type="stmt"/>
+        <line num="219" count="0" type="stmt"/>
+        <line num="229" count="0" type="cond" truecount="0" falsecount="4"/>
+      </file>
+      <file name="MobileSearchBar.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/features/search/MobileSearchBar.tsx">
+        <metrics statements="98" coveredstatements="63" conditionals="41" coveredconditionals="11" methods="24" coveredmethods="11"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="32" count="20" type="stmt"/>
+        <line num="33" count="20" type="stmt"/>
+        <line num="34" count="20" type="stmt"/>
+        <line num="35" count="20" type="stmt"/>
+        <line num="36" count="20" type="stmt"/>
+        <line num="37" count="20" type="stmt"/>
+        <line num="38" count="20" type="stmt"/>
+        <line num="40" count="20" type="stmt"/>
+        <line num="41" count="14" type="stmt"/>
+        <line num="44" count="20" type="stmt"/>
+        <line num="45" count="14" type="cond" truecount="4" falsecount="0"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="50" count="20" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="53" count="2" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="65" count="20" type="stmt"/>
+        <line num="66" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="67" count="12" type="stmt"/>
+        <line num="68" count="12" type="stmt"/>
+        <line num="69" count="12" type="stmt"/>
+        <line num="70" count="12" type="stmt"/>
+        <line num="72" count="2" type="stmt"/>
+        <line num="75" count="20" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
+        <line num="91" count="20" type="stmt"/>
+        <line num="92" count="2" type="stmt"/>
+        <line num="93" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="94" count="1" type="stmt"/>
+        <line num="95" count="1" type="stmt"/>
+        <line num="96" count="1" type="stmt"/>
+        <line num="97" count="1" type="stmt"/>
+        <line num="98" count="1" type="stmt"/>
+        <line num="99" count="1" type="stmt"/>
+        <line num="103" count="20" type="stmt"/>
+        <line num="104" count="0" type="stmt"/>
+        <line num="105" count="0" type="stmt"/>
+        <line num="106" count="0" type="stmt"/>
+        <line num="107" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="110" count="20" type="stmt"/>
+        <line num="111" count="0" type="stmt"/>
+        <line num="112" count="0" type="stmt"/>
+        <line num="113" count="0" type="stmt"/>
+        <line num="114" count="0" type="stmt"/>
+        <line num="115" count="0" type="stmt"/>
+        <line num="116" count="0" type="stmt"/>
+        <line num="119" count="20" type="stmt"/>
+        <line num="121" count="20" type="stmt"/>
+        <line num="134" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="150" count="1" type="stmt"/>
+        <line num="154" count="0" type="stmt"/>
+        <line num="165" count="20" type="stmt"/>
+        <line num="166" count="0" type="stmt"/>
+        <line num="191" count="0" type="stmt"/>
+        <line num="192" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="193" count="0" type="stmt"/>
+        <line num="195" count="0" type="stmt"/>
+        <line num="206" count="0" type="stmt"/>
+        <line num="207" count="0" type="stmt"/>
+        <line num="215" count="0" type="stmt"/>
+        <line num="216" count="0" type="stmt"/>
+        <line num="259" count="20" type="stmt"/>
+        <line num="260" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="261" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="262" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="263" count="0" type="stmt"/>
+        <line num="266" count="0" type="stmt"/>
+        <line num="267" count="0" type="stmt"/>
+        <line num="268" count="0" type="stmt"/>
+        <line num="272" count="0" type="cond" truecount="0" falsecount="7"/>
+        <line num="273" count="0" type="stmt"/>
+        <line num="275" count="0" type="stmt"/>
+        <line num="290" count="20" type="cond" truecount="1" falsecount="1"/>
+      </file>
+      <file name="SearchBar.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/features/search/SearchBar.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="21" type="stmt"/>
+        <line num="7" count="21" type="cond" truecount="2" falsecount="0"/>
+      </file>
+    </package>
+    <package name="hooks">
+      <metrics statements="17" coveredstatements="17" conditionals="1" coveredconditionals="1" methods="9" coveredmethods="8"/>
+      <file name="useDebounce.ts" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/hooks/useDebounce.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="87" type="stmt"/>
+        <line num="6" count="87" type="stmt"/>
+        <line num="7" count="57" type="stmt"/>
+        <line num="8" count="8" type="stmt"/>
+        <line num="10" count="57" type="stmt"/>
+        <line num="11" count="57" type="stmt"/>
+        <line num="15" count="87" type="stmt"/>
+      </file>
+      <file name="useIsMobile.ts" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/hooks/useIsMobile.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="1" coveredconditionals="1" methods="5" coveredmethods="4"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="3" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="4" count="42" type="stmt"/>
+        <line num="5" count="42" type="stmt"/>
+        <line num="6" count="33" type="stmt"/>
+        <line num="7" count="33" type="stmt"/>
+        <line num="8" count="33" type="stmt"/>
+        <line num="10" count="42" type="stmt"/>
+      </file>
+    </package>
+    <package name="store">
+      <metrics statements="24" coveredstatements="23" conditionals="4" coveredconditionals="3" methods="14" coveredmethods="14"/>
+      <file name="searchStore.ts" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/store/searchStore.ts">
+        <metrics statements="24" coveredstatements="23" conditionals="4" coveredconditionals="3" methods="14" coveredmethods="14"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="29" count="5" type="stmt"/>
+        <line num="32" count="5" type="stmt"/>
+        <line num="33" count="5" type="stmt"/>
+        <line num="34" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="41" count="38" type="stmt"/>
+        <line num="42" count="38" type="stmt"/>
+        <line num="46" count="5" type="stmt"/>
+        <line num="48" count="20" type="stmt"/>
+        <line num="51" count="40" type="stmt"/>
+        <line num="53" count="19" type="stmt"/>
+        <line num="55" count="18" type="stmt"/>
+        <line num="58" count="18" type="stmt"/>
+        <line num="60" count="18" type="stmt"/>
+        <line num="62" count="18" type="stmt"/>
+        <line num="65" count="18" type="stmt"/>
+        <line num="69" count="22" type="cond" truecount="2" falsecount="0"/>
+        <line num="70" count="70" type="stmt"/>
+        <line num="71" count="20" type="stmt"/>
+        <line num="72" count="20" type="stmt"/>
+        <line num="73" count="20" type="stmt"/>
+        <line num="76" count="18" type="stmt"/>
+        <line num="77" count="18" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+      <file name="highlightSuggestion.tsx" path="/Users/geronimogarcia/Desktop/meli/meli-frontend/src/utils/highlightSuggestion.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

@@ -24,6 +24,97 @@
 
 ---
 
+## 🧪 Testing & Quality Assurance
+
+### **Suite de Tests Implementada**
+
+Hemos implementado una suite de tests siguiendo las mejores prácticas de testing en React:
+
+#### **Cobertura Actual:**
+```
+All files                   |   72.48 |    55.12 |   58.86 |   74.53 |
+```
+
+#### **Tecnologías de Testing:**
+- **Jest** - Framework de testing principal
+- **React Testing Library** - Testing de componentes con enfoque en UX
+- **@testing-library/jest-dom** - Matchers adicionales para DOM
+- **MSW (Mock Service Worker)** - Mocking de APIs
+
+#### **Tipos de Tests Implementados:**
+
+**✅ Unit Tests:**
+- Hooks personalizados (`useDebounce`, `useIsMobile`)
+- Utilidades (`highlightSuggestion`)
+- Store de estado global (`searchStore`)
+
+**✅ Component Tests:**
+- Componentes de UI (`Header`, `ProductCard`, `SearchBar`)
+- Componentes de features (`ProductDetail`, `ProductList`)
+- Componentes responsivos (`DesktopSearchBar`, `MobileSearchBar`)
+
+#### **Patrones de Testing Aplicados:**
+
+```typescript
+// Ejemplo: Testing de componentes con mocks
+describe('ProductList', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+    mockUseSearchStore.mockReturnValue({
+      searchResults: [],
+      loadingResults: false,
+      errorResults: null,
+      // ... resto del mock
+    });
+  });
+
+  it('renders without crashing', () => {
+    render(<ProductList />);
+    expect(document.querySelector('section')).toBeInTheDocument();
+  });
+
+  it('shows products when available', () => {
+    // Arrange
+    const mockProducts = [/* ... */];
+    mockUseSearchStore.mockReturnValue({
+      searchResults: mockProducts,
+      // ... resto del mock
+    });
+
+    // Act
+    render(<ProductList />);
+
+    // Assert
+    expect(screen.getByText('Test Product 1')).toBeInTheDocument();
+  });
+});
+```
+
+#### **Buenas Prácticas Implementadas:**
+
+- **Testing Behavior over Implementation** - Tests enfocados en comportamiento del usuario
+- **Semantic Queries** - Uso de `getByRole`, `getByLabelText` en lugar de `getByTestId`
+- **Proper Mocking** - Mocks de APIs, stores y hooks externos
+- **AAA Pattern** - Arrange, Act, Assert en todos los tests
+- **Edge Cases Coverage** - Tests para estados de error, loading y casos límite
+
+#### **Comandos de Testing:**
+```bash
+# Ejecutar todos los tests
+npm test
+
+# Tests con cobertura
+npm test -- --coverage
+
+# Tests en modo watch
+npm test -- --watch
+
+# Tests específicos
+npm test -- ComponentName.test.tsx
+```
+
+---
+
 ## 🛠️ Decisiones técnicas destacadas
 
 - **Arquitectura modular y SOLID:**
@@ -42,6 +133,9 @@
 - **Clean code y mantenibilidad:**
   - Tipado estricto con TypeScript.
   - Separación de lógica y presentación.
+- **Testing robusto:**
+  - Suite completa de tests unitarios y de componentes.
+  - Cobertura del 72.48% con enfoque en funcionalidades críticas.
 
 ---
 
@@ -63,7 +157,8 @@
   - Conectar con la API oficial de Mercado Libre para datos en tiempo real.
   - Internacionalización (i18n) y soporte multilenguaje.
 - **Testing y calidad:**
-  - Unit y e2e tests con Jest, React Testing Library y Cypress.
+  - **Tests de integración** - Verificar flujos completos entre componentes (SearchBar → ProductList → ProductDetail).
+  - **E2E tests con Cypress** - Tests de flujos completos de usuario desde la perspectiva del usuario final.
   - Pruebas de accesibilidad y performance.
 - **Documentación y mantenibilidad:**
   - Documentación técnica más extensa, diagramas de arquitectura y convenciones de código.
