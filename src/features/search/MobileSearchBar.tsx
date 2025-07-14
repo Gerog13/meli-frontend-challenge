@@ -219,15 +219,17 @@ export function MobileSearchBar({ onSearch }: { onSearch?: (query: string) => vo
             </button>
           )}
         </form>
-        <div
-          role="listbox"
-          className="w-full bg-white z-[1001] animate-fade-in border-t border-[#e6e6e6] min-h-0 max-h-[calc(100vh-48px)] overflow-y-auto"
-          style={{ transition: 'opacity 0.2s cubic-bezier(.4,0,.2,1)' }}
-          aria-live="polite"
-          aria-busy={loadingSuggestions}
-        >
-          {getDropdownContent()}
-        </div>
+        {(query || searchHistory.length > 0) && showSuggestions && (
+          <div
+            role="listbox"
+            className="w-full bg-white z-[1001] animate-fade-in border-t border-[#e6e6e6] min-h-0 max-h-[calc(100vh-48px)] overflow-y-auto"
+            style={{ transition: 'opacity 0.2s cubic-bezier(.4,0,.2,1)' }}
+            aria-live="polite"
+            aria-busy={loadingSuggestions}
+          >
+            {getDropdownContent()}
+          </div>
+        )}
         <style>{`
           @keyframes fade-in {
             from { opacity: 0; transform: translateY(-8px); }
