@@ -13,7 +13,7 @@
         "price": 1367999,
         "currency_id": "ARS",
         "condition": "new",
-        "thumbnail": "https://http2.mlstatic.com/D_987654-MLA0000000000_092023-I.jpg",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_973345-MLA47781591382_102021-F.webp",
         "installments": {
           "quantity": 12,
           "amount": 113999.92
@@ -32,7 +32,7 @@
         "price": 2299000,
         "currency_id": "ARS",
         "condition": "new",
-        "thumbnail": "https://http2.mlstatic.com/D_987655-MLA0000000001_092023-I.jpg",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_768410-MLU78891930890_092024-F.webp",
         "installments": {
           "quantity": 18,
           "amount": 127722.22
@@ -51,7 +51,7 @@
         "price": 412500,
         "currency_id": "ARS",
         "condition": "used",
-        "thumbnail": "https://http2.mlstatic.com/D_987656-MLA0000000002_092023-I.jpg",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_2X_674330-MLA31003091314_062019-F.webp",
         "installments": {
           "quantity": 6,
           "amount": 68750
@@ -79,11 +79,15 @@
     "pictures": [
       {
         "id": "1",
-        "url": "https://http2.mlstatic.com/D_987654-MLA0000000000_092023-I.jpg"
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_939427-MLU79132024637_092024-F.webp"
       },
       {
         "id": "2",
-        "url": "https://http2.mlstatic.com/D_987655-MLA0000000001_092023-I.jpg"
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_604464-MLU78894756056_092024-F.webp"
+      },
+      {
+        "id": "3",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_2X_958759-MLU79132024679_092024-F.webp"
       }
     ],
     "installments": {

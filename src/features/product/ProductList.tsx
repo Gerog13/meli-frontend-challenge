@@ -64,9 +64,9 @@ export default function ProductList() {
       <div className="w-full meli-md:max-w-[744px] meli-md:mx-auto">
         {loadingResults ? (
           <div className="flex flex-col gap-2">
-            <ProductCardSkeleton />
-            <ProductCardSkeleton />
-            <ProductCardSkeleton />
+            {Array.from({ length: 3 }).map((_, index) => (
+              <ProductCardSkeleton key={index} />
+            ))}
           </div>
         ) : errorResults ? (
           <div className="text-red-600 py-4 text-center">{errorResults}</div>
