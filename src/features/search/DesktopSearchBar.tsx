@@ -250,7 +250,7 @@ export function DesktopSearchBar() {
           strokeWidth={0.1}
         />
       </button>
-      {showSuggestions && renderSuggestions()}
+      {showSuggestions && (query || searchHistory.length > 0) && renderSuggestions()}
     </form>
   );
 }
