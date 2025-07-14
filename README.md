@@ -27,9 +27,6 @@
 ## 🧪 Testing & Quality Assurance
 
 ### **Suite de Tests Implementada**
-
-Hemos implementado una suite de tests siguiendo las mejores prácticas de testing en React:
-
 #### **Cobertura Actual:**
 ```
 All files                   |   72.48 |    55.12 |   58.86 |   74.53 |
@@ -160,5 +157,8 @@ npm test -- ComponentName.test.tsx
   - **Tests de integración** - Verificar flujos completos entre componentes (SearchBar → ProductList → ProductDetail).
   - **E2E tests con Cypress** - Tests de flujos completos de usuario desde la perspectiva del usuario final.
   - Pruebas de accesibilidad y performance.
+- **Flujo de trabajo y entornos:**
+  - Configurar **entornos múltiples** (dev, staging, prod) como práctica profesional.
+  - Implementar **code reviews** para mejorar calidad.
 - **Documentación y mantenibilidad:**
   - Documentación técnica más extensa, diagramas de arquitectura y convenciones de código.
