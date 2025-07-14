@@ -149,7 +149,6 @@ npm test -- ComponentName.test.tsx
   - Implementar favoritos persistentes y feedback inmediato al usuario.
 - **Mobile first real:**
   - Profundizar en la experiencia mobile: gestos, accesos rápidos, bottom navigation, etc.
-  - Optimizar el rendimiento y la carga en dispositivos móviles.
 - **Integración y escalabilidad:**
   - Conectar con la API oficial de Mercado Libre para datos en tiempo real.
   - Internacionalización (i18n) y soporte multilenguaje.
